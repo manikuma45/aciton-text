@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_085734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
+#postテーブルとarticleテーブルどちらとも関連している
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 2020_02_24_085734) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
-
+#action_text_rich_textsと関連している
+#中間テーブル
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -34,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_085734) do
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
-
+#
   create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_085734) do
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
     t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true #active_storage_attachmentsから見られるためのKEY
   end
 
   create_table "aricles", force: :cascade do |t|
