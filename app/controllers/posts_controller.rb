@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-  	#binding.pry #ブレーキポイント
+    #binding.pry #ブレーキポイント
     @posts = Post.all
   end
 
